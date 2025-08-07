@@ -1,0 +1,148 @@
+🔍 리눅스 SSH 접속 및 계정 정보 수집 스크립트
+시작 시간: Wed Aug  6 02:54:58 AM EDT 2025
+----------------------------------------
+-e 
+📋 전체 사용자 계정 목록 (/etc/passwd):
+root
+daemon
+bin
+sys
+sync
+games
+man
+lp
+mail
+news
+uucp
+proxy
+www-data
+backup
+list
+irc
+_apt
+nobody
+systemd-network
+dhcpcd
+systemd-timesync
+messagebus
+tss
+strongswan
+tcpdump
+sshd
+_rpc
+dnsmasq
+avahi
+nm-openvpn
+speech-dispatcher
+usbmux
+nm-openconnect
+pulse
+lightdm
+statd
+saned
+polkitd
+rtkit
+colord
+mysql
+stunnel4
+geoclue
+Debian-snmp
+sslh
+cups-pk-helper
+redsocks
+_gophish
+iodine
+miredo
+redis
+postgres
+mosquitto
+inetsim
+_gvm
+kali
+-e 
+🔐 로그인 가능한 사용자 계정 (유효한 쉘):
+root
+postgres
+kali
+-e 
+📁 홈 디렉토리 및 기본 쉘:
+root            /root                          /usr/bin/zsh        
+daemon          /usr/sbin                      /usr/sbin/nologin   
+bin             /bin                           /usr/sbin/nologin   
+sys             /dev                           /usr/sbin/nologin   
+sync            /bin                           /bin/sync           
+games           /usr/games                     /usr/sbin/nologin   
+man             /var/cache/man                 /usr/sbin/nologin   
+lp              /var/spool/lpd                 /usr/sbin/nologin   
+mail            /var/mail                      /usr/sbin/nologin   
+news            /var/spool/news                /usr/sbin/nologin   
+uucp            /var/spool/uucp                /usr/sbin/nologin   
+proxy           /bin                           /usr/sbin/nologin   
+www-data        /var/www                       /usr/sbin/nologin   
+backup          /var/backups                   /usr/sbin/nologin   
+list            /var/list                      /usr/sbin/nologin   
+irc             /run/ircd                      /usr/sbin/nologin   
+_apt            /nonexistent                   /usr/sbin/nologin   
+nobody          /nonexistent                   /usr/sbin/nologin   
+systemd-network /                              /usr/sbin/nologin   
+dhcpcd          /usr/lib/dhcpcd                /bin/false          
+systemd-timesync /                              /usr/sbin/nologin   
+messagebus      /nonexistent                   /usr/sbin/nologin   
+tss             /var/lib/tpm                   /bin/false          
+strongswan      /var/lib/strongswan            /usr/sbin/nologin   
+tcpdump         /nonexistent                   /usr/sbin/nologin   
+sshd            /run/sshd                      /usr/sbin/nologin   
+_rpc            /run/rpcbind                   /usr/sbin/nologin   
+dnsmasq         /var/lib/misc                  /usr/sbin/nologin   
+avahi           /run/avahi-daemon              /usr/sbin/nologin   
+nm-openvpn      /var/lib/openvpn/chroot        /usr/sbin/nologin   
+speech-dispatcher /run/speech-dispatcher         /bin/false          
+usbmux          /var/lib/usbmux                /usr/sbin/nologin   
+nm-openconnect  /var/lib/NetworkManager        /usr/sbin/nologin   
+pulse           /run/pulse                     /usr/sbin/nologin   
+lightdm         /var/lib/lightdm               /bin/false          
+statd           /var/lib/nfs                   /usr/sbin/nologin   
+saned           /var/lib/saned                 /usr/sbin/nologin   
+polkitd         /                              /usr/sbin/nologin   
+rtkit           /proc                          /usr/sbin/nologin   
+colord          /var/lib/colord                /usr/sbin/nologin   
+mysql           /nonexistent                   /bin/false          
+stunnel4        /var/run/stunnel4              /usr/sbin/nologin   
+geoclue         /var/lib/geoclue               /usr/sbin/nologin   
+Debian-snmp     /var/lib/snmp                  /bin/false          
+sslh            /nonexistent                   /usr/sbin/nologin   
+cups-pk-helper  /nonexistent                   /usr/sbin/nologin   
+redsocks        /var/run/redsocks              /usr/sbin/nologin   
+_gophish        /var/lib/gophish               /usr/sbin/nologin   
+iodine          /run/iodine                    /usr/sbin/nologin   
+miredo          /var/run/miredo                /usr/sbin/nologin   
+redis           /var/lib/redis                 /usr/sbin/nologin   
+postgres        /var/lib/postgresql            /bin/bash           
+mosquitto       /var/lib/mosquitto             /usr/sbin/nologin   
+inetsim         /var/lib/inetsim               /usr/sbin/nologin   
+_gvm            /var/lib/openvas               /usr/sbin/nologin   
+kali            /home/kali                     /usr/bin/zsh        
+-e 
+🕒 최근 로그인 기록 (last):
+root     pts/9        Wed Jul 16 23:13 - 20:27 (19+21:14)   
+root     pts/3        Wed Jul 16 22:22 - still logged in    
+root     pts/1        Wed Jul 16 22:20 - 20:27 (19+22:07)   
+root     pts/4        Wed Jul 16 22:18 - 22:21  (00:03)     
+root     pts/1        Wed Jul 16 22:17 - 22:18  (00:01)     
+postgres pts/4        Wed Jul 16 21:36 - 21:36  (00:00)     
+root     pts/3        Wed Jul 16 21:23 - 21:43  (00:19)     
+root     pts/1        Wed Jul 16 21:14 - 22:09  (00:54)     
+kali     tty7         Wed Jul 16 21:12 - still logged in    :0
+lightdm  tty7         Wed Jul 16 21:11 - 21:12  (00:01)     :0
+-e 
+👥 현재 로그인 중인 사용자 (who):
+kali     seat0        2025-07-16 21:12 (:0)
+-e 
+📊 현재 세션 상세 정보 (w):
+ 02:54:58 up  9:30,  1 user,  load average: 0.26, 0.33, 0.62
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU  WHAT
+kali              -                16Jul25         0.00s  0.01s lightdm --session-child 13 23
+-e 
+⚠️ SSH 로그 파일을 찾을 수 없습니다 (/var/log/auth.log 또는 /var/log/secure).
+-e 
+📡 현재 SSH 세션 (sshd):
