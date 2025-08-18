@@ -16,6 +16,13 @@ sudo sed -i '1i/127.0.0.1 kr.linkedin.co.kr' /etc/hosts
 ## Pharming WebSite Execution
 ```
 cd ${Clone Path}
-python manage.py runserver 0.0.0.0:80
+python manage.py runserver 127.0.0.1:80
 ```
+
+## Modifiy host file
+Refer to ./shellcode/README file
+
+
+## Access Link
+linkedin.co.kr/login
 

