@@ -5,7 +5,6 @@
 
 ## DNS Fishing Code
 ```
-sudo vi /etc/hosts
 sudo sed -i '1i127.0.0.1 linkedin.co.kr' /etc/hosts
 sudo sed -i '1i127.0.0.1 linkedin.com' /etc/hosts
 sudo sed -i '1i127.0.0.1 www.linkedin.com' /etc/hosts
